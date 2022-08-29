@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+}
+
+.text-one {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3e487c;
+}
+
+.text-one-header{
+    position: relative;
+    font-size: 14vw;
+    color: #252839;
+    text-shadow: -1px -1px 0 #383d52, 1px -1px 0 #383d52, -1px 1px 0 #383d52, 1px 1px 0 #383d52;
+    text-transform: uppercase;
+}
+
+.text-one-header::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #01fe87;
+    border-right: 2px solid #01fe87;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+@keyframes animate {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%;
+    }
+}
+
+.text-two {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #531728;
+}
+
+.content {
+    position: relative;
+}
+
+.content h2 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 8em;
+}
+
+.content h2:nth-child(1) {
+    text-shadow: -1px -1px 0 #03a9f4, 1px -1px 0 #03a9f4, -1px 1px 0 #03a9f4, 1px 1px 0 #03a9f4;
+}
+
+.content h2:nth-child(2) {
+    color: #03a9f4;
+    animation: animateText 4000ms ease-in-out infinite;
+}
+@keyframes animateText {
+    0%, 100% {
+        clip-path: polygon(0% 44%, 12% 43%, 25% 49%, 36% 54%, 50% 54%, 62% 53%, 79% 50%, 91% 46%, 100% 46%, 100% 100%, 0% 100%);
+    }
+
+    50% {
+        clip-path: polygon(0 53%, 11% 57%, 23% 52%, 38% 46%, 51% 46%, 61% 53%, 74% 58%, 85% 59%, 100% 58%, 100% 100%, 0% 100%);
+    }
+    
+}

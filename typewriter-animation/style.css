@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Source+Code+Pro:wght@300&family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Source+Code+Pro:wght@300&display=swap');
+
+
+:root {
+    --bg-colour: hsl(49 37% 94%);
+    --typewriterSpeed: 6000ms;
+    --typewriterCharacters: 45;
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Source Sans Pro", sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background: var(--bg-colour);
+}
+
+h1 {
+    font-size: clamp(1rem, 3vw + 1 rem, 4rem );
+    position: relative;
+    /* Must be a monospace font */
+    font-family: 'Source Code Pro', monospace;
+    /* shrink size only to size of the characters in element */
+    width: max-content;
+}
+
+h1::before,
+h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+}
+
+h1::before {
+    background: var(--bg-colour);
+    /* Once the animation runs it won't revert to starting position */
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
+    width: .125em;
+    background-color: black;
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(45) infinite;
+}
+
+@keyframes typewriter {
+    from {
+        left: 0%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
+
+.subtitle {
+    color: hsl(0 0% 0% / 0.7);
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeInUp 2000ms ease calc(var(--typewriterSpeed) + 2000ms) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

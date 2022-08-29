@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    color: #FFFFFB;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  section {
+    padding: 30vh 0;
+  }
+
+  .one {
+    background: #FFC145;
+    position: relative;
+  }
+
+  .one::after,
+  .one::before {
+    position: absolute;
+    content: '';
+    width: 150px;
+    height: 150px;
+    background: #FFC145;
+    bottom: -1em;
+  }
+
+  .one::before {
+    right: 50%;
+    transform: skew(0, 20deg);
+    z-index: 100;
+  }
+
+  .one::after {
+    left: 50%;
+    transform: skew(0, -20deg);
+    z-index: 100;
+  }
+
+  .one__icon {
+    background: rgba(0, 0, 0, .3);
+    color: rgba(0, 0,0, 0.3);
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+  }
+
+  .two {
+    background: #FF6B6C;
+    position: relative;
+    z-index: 10;
+    /* Keeps angle the same regardless of page size */
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 10vw),
+        0 100%
+    );
+    margin-bottom: -10vw;
+  }
+
+  .two__image {
+    /* C */
+    /* clip-path: circle(50%); */
+    /* clip-path: circle(25%); */
+    /* Own custom shape */
+    /* X, Y Axis */
+    
+    /* perfect square */
+    /* clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    ); */
+
+    /* clip-path: polygon(
+        25px 100px,
+        100% 0,
+        100% 100%,
+        0 100%
+    ); */
+    border-radius: 0%;
+    transition: border-radius 200ms ease;
+  }
+  .two__image:hover {
+    border-radius: 50%;
+  }
+
+
+
+  .three {
+    background: #5B5F97;
+  }

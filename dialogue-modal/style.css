@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.open-button, .open-button > *  {
+    width: max-content;
+    height: max-content;
+    padding: 1em;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: darkcyan;
+}
+
+.close-button, .close-button > *  {
+    width: max-content;
+    height: max-content;
+    padding: 1em;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: cyan;
+}
+
+.pop-up {
+    width: 20em;
+    height: 20em;
+    background: darkslategrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
