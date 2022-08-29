@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-colour: #262626;
+}
+
+body {
+    background: var(--bg-colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.map-box {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background: #fff;
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 100%;
+
+}

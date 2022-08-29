@@ -1,0 +1,20 @@
+let suggestions = [
+    "Channel",
+    "Is House of the Dragon any good?",
+    "When will George finish TWOW?",
+    "Hello World: How to Program",
+    "Youtube",
+    "Twitter",
+    "Instagram",
+    "Login Form for HTML & CSS",
+    "How to learn HTML & CSS",
+    "How to learn JavaScript",
+    "How to become a Freelancer",
+    "How to become a Web Designer",
+    "Web Designer",
+    "Web  Developer",
+    "Django VS Laravel",
+    "Angular VS React",
+    "Vim VS Nano",
+    "Learn to Draw"
+];
