@@ -1,5 +1,3 @@
-// console.log("TEST");
-
 const track = document.querySelector('.carousel__track');
 // Returns an array of Element objects
 const slides = Array.from(track.children);
@@ -84,5 +82,4 @@ dotsNav.addEventListener('click', event => {
 
     moveToSlide(track, currentSlide, targetSlide);
     updateDots(currentDot, targetDot);
-
 })
