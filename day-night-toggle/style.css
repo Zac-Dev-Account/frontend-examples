@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --toggle-body-colour: blue;
+    --day-colour: #fff;
+    --night-colour: #000;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--day-colour);
+    transition: background-color 500ms ease-in-out;
+}
+
+.toggle-body {
+    position: relative;
+    width: 5em;
+    height: 2.5em;
+    border-radius: 2em;
+    background-color: var(--toggle-body-colour);
+}
+
+.toggle-circle {
+    position: absolute;
+    border-radius: 50%;
+    margin: 0.1em;
+    width: 2.25em;
+    height: 2.25em;
+    transition: transform 250ms ease-in-out;
+}
+
+.toggle-click + label > .toggle-circle {
+    background-color: var(--day-colour);
+    transform: translateX(0%);
+}
+
+.toggle-click:checked + label > .toggle-circle {
+    background-color: var(--night-colour);
+    transform: translateX(calc(5em - 2.5em));
+}
+
+.toggle-click {
+    display: none;
+}
+
