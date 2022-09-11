@@ -7,7 +7,7 @@ let currentStrokes = 0;
 let complete = 100;
 // 2 seconds
 let duration = 3000;
-let totalStrokes = 470;
+let totalStrokes = 471;
 
 // every 20ms update
 let interval = (duration / complete);

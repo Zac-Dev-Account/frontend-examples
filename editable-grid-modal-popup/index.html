@@ -1,3 +1,10 @@
+<!-- ToDo: -->
+<!-- 1. Get Dynamic Data Populating -->
+<!-- 2. Get Pagination Working -->
+<!-- 3. Get Modal Popup & Data-Entry working -->
+<!-- 4. Get Responsiveness working-->
+<!-- 5. Add Day-Night Toggle -->
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -12,6 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/174d9e1b24.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -21,13 +29,138 @@
         <!-- Card -->
 
         <!-- Table -->
-        <div>
-            
-        </div>
-        <!-- Pagination -->
+        <div class="container">
+            <!-- Main Heading -->
+            <div class="heading">
+                <h1>Record of Daytime Driving Hours</h1>
+                <div class="heading-icon">
+                    <i class="fa-solid fa-sun"></i>
+                    <h1>Daytime</h1>
+                </div>
+            </div>
 
-        <!-- Add New Entry -->
-        <button>+ Add New Entry</button>
+            <!-- Sub Heading -->
+            <div class="table-heading">
+                <div class="grid-columns-7">
+
+                    <div class="item">
+                        <p>Status</p>
+                    </div>
+    
+                    <div class="item">
+                        <p>Date</p>
+                    </div>
+    
+                    <div class="grid-rows-2">
+                        <div class="item">
+                            <p>Time</p>
+                        </div>
+                        <div class="grid-columns-3">
+                            <div class="item">
+                                <p>Start</p>
+                            </div>
+                            <div class="item">
+                                <p>Finish</p>
+                            </div>
+                            <div class="item">
+                                <p>Duration</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="grid-rows-2">
+                        <div class="item">
+                            <p>Location (Suburb)</p>
+                        </div>
+                        <div class="grid-columns-2">
+                            <div class="item">
+                                <p>From</p>
+                            </div>
+                            <div class="item">
+                                <p>To</p>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <div class="grid-rows-2">
+                        <div class="item">
+                            <p>Conditions</p>
+                        </div>
+                        <div class="grid-columns-3">
+                            <div class="item">
+                                <p>Road</p>
+                            </div>
+                            <div class="item">
+                                <p>Weather</p>
+                            </div>
+                            <div class="item">
+                                <p>Traffic</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="item">
+                        <p>Learner's Signature</p>
+                    </div>
+    
+                    <div class="grid-rows-2">
+                        <div class="item">
+                            <p>Qualified Supervising Driver</p>
+                        </div>
+                        <div class="grid-columns-3">
+                            <div class="item">
+                                <p>Full Name</p>
+                            </div>
+                            <div class="item">
+                                <p>License No.</p>
+                            </div>
+                            <div class="item">
+                                <p>Signature</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-body">
+            </div>
+
+            <div class="table-footer">
+                <!-- Pagination -->
+                <div class="pagination">
+                    <i class="fa-solid fa-angles-left chevron"></i>
+
+                    <div class="middle-pagination">
+                        <i class="fa-solid fa-chevron-left chevron"></i>
+                        <p class="page-number">1 - 10</p>
+                        <i class="fa-solid fa-chevron-right chevron"></i>
+                    </div>
+
+                    <i class="fa-solid fa-angles-right chevron"></i>
+                </div>
+
+                <!-- Page Numbers -->
+                <div class="page-numbers">
+                    <span>Page 1 / 5</span>
+                </div>
+            </div>
+
+
+            <!-- Add New Entry -->
+            <div class="button-layout">
+                <button class="submit-button">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add New Entry</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Modal Pop-up -->
+        
+        <script src="./js/data.js"></script>
+        <script src="./js/table.js"></script>
         <script src="" async defer></script>
     </body>
 </html>

@@ -1,7 +1,17 @@
 *,
 *::before,
 *::after {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --bg-colour: #2dad4f;
+    --sun-colour: #f4fa43;
+    --white-text-colour: #ffffff;
+    --item-bg-colour: #6ee08c;
+    --submit-button-colour: #0c8ac4;
 }
 
 body {
@@ -9,9 +19,227 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 80vw;
+    padding: 0;
+    margin: 0;
+    transform-origin: top left;
+    transform: translateY(-600px);
+    animation: popIn 1000ms ease-in-out forwards,
+                rotate 1000ms 950ms ease-in-out forwards;
+}
+@keyframes popIn {
+    0% {
+        
+    }
+    75% {
+        transform: translateY(75px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+@keyframes rotate {
+    0%{
+
+    }
+    50% {
+        transform: rotateZ(2deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+
+}
+
+/* Heading */
+
+.heading {
+    padding: 0.5em;
+    color: var(--white-text-colour);
+    background-color: var(--bg-colour);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
-.editable-grid {
-    
+.heading-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
 }
+
+.heading-icon i {
+    color: var(--sun-colour);
+    margin: 0.2em;
+    font-size: 3em;
+}
+
+.table-heading {
+
+}
+
+.table-body {
+
+}
+
+.table-footer {
+    background-color: var(--bg-colour);
+    margin-bottom: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25em 1em;
+}
+
+/* Grid Layout */
+
+.grid-columns-7 {
+    background-color: var(--bg-colour);
+    display: grid;
+    grid-template-columns: 8% 8% repeat(5, 16.8%)
+}
+
+.grid-columns-3 {
+    background-color: var(--bg-colour);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-columns-2 {
+    background-color: var(--bg-colour);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.grid-rows-2 {
+    background-color: var(--bg-colour);
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* Item Base */
+.item {
+    border: 2px solid var(--white-text-colour);
+    border-right: none;
+    background-color: var(--item-bg-colour);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    font-weight: 800;
+}
+
+.grid-columns-7 > .item,
+.grid-rows-2 > .item {
+    font-size: 1.5em;
+    padding: 0.2em;
+}
+
+.grid-columns-3 > .item,
+.grid-columns-2 > .item {
+    font-size: 1em;
+    border-top: none;
+    font-weight: 400;
+}
+
+.grid-columns-7 > *:first-child {
+    border-left: none;
+}
+
+/* Pagination */
+
+.pagination {
+    font-size: 2em;
+    color: var(--white-text-colour);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 10;
+}
+
+.middle-pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.chevron {
+    opacity: 0.7;
+    transition: opacity 250ms ease-in-out;
+}
+
+.chevron:hover {
+    opacity: 1;
+}
+
+.page-numbers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    font-size: 2em;
+    color: var(--white-text-colour);
+}
+
+/* Buttons */
+.button-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.submit-button {
+    height: 2em;
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--submit-button-colour);
+    background-color: var(--white-text-colour);
+    border-radius: .5em;
+    transform-origin: center;
+    transition: background-color 250ms ease-in-out;
+                
+}
+.submit-button > i {
+    font-size: 1.25em;
+    margin-right: 0.5em;
+    color: var(--submit-button-colour);
+    transition: color 100ms 250ms ease-in-out;
+}
+
+.submit-button > span {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: var(--submit-button-colour);
+    transition: color 100ms 250ms ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: var(--submit-button-colour);
+}
+
+.submit-button:hover > i {
+    color: var(--white-text-colour);
+}
+
+.submit-button:hover > span {
+    color: var(--white-text-colour);
+}
+
+
+/* Media Queries */
+
+/* Responsive Layout */
