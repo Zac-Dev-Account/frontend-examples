@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
 *,
 *::before,
 *::after {
@@ -8,28 +11,36 @@
 
 :root {
     --bg-colour: #2dad4f;
+    --delete-bg-colour: #f03059;
+    --edit-bg-colour: #0c8ac4;
+
     --sun-colour: #f4fa43;
     --white-text-colour: #ffffff;
-    --item-bg-colour: #6ee08c;
+
+    --item-bg-colour: #d2fadd;
+    --item-pending-colour: #d2fadd;
+    --item-draft-colour: #d2fadd;
+    --item-rejected-colour: #d2fadd;
+
     --submit-button-colour: #0c8ac4;
+    --delete-button-colour: #f03059;
 }
 
 body {
     width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    font-family: 'Lora', serif;
 }
 
 .container {
     width: 80vw;
     padding: 0;
     margin: 0;
+    overflow: hidden;
     transform-origin: top left;
     transform: translateY(-600px);
-    animation: popIn 1000ms ease-in-out forwards,
-                rotate 1000ms 950ms ease-in-out forwards;
+    animation: popIn 1000ms 100ms ease-in-out forwards;
 }
 @keyframes popIn {
     0% {
@@ -67,6 +78,26 @@ body {
     align-items: center;
 }
 
+.edit-heading {
+    padding: 0.5em;
+    color: var(--white-text-colour);
+    background-color: var(--edit-bg-colour);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-heading {
+    padding: 0.5em;
+    color: var(--white-text-colour);
+    background-color: var(--delete-bg-colour);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .heading-icon {
     display: flex;
     flex-direction: row;
@@ -74,8 +105,14 @@ body {
     align-items: center;
 }
 
-.heading-icon i {
+.heading-icon .sun {
     color: var(--sun-colour);
+    margin: 0.2em;
+    font-size: 3em;
+}
+
+.heading-icon .calendar {
+    color: var(--white-text-colour);
     margin: 0.2em;
     font-size: 3em;
 }
@@ -85,7 +122,7 @@ body {
 }
 
 .table-body {
-
+    overflow: hidden;
 }
 
 .table-footer {
@@ -96,6 +133,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.25em 1em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, 
+                rgba(0, 0, 0, 0.07) 0px 2px 2px, 
+                rgba(0, 0, 0, 0.07) 0px 4px 4px, 
+                rgba(0, 0, 0, 0.07) 0px 8px 8px, 
+                rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 /* Grid Layout */
@@ -103,7 +147,7 @@ body {
 .grid-columns-7 {
     background-color: var(--bg-colour);
     display: grid;
-    grid-template-columns: 8% 8% repeat(5, 16.8%)
+    grid-template-columns: 6% repeat(2, 16.8%) 16% 10%  24.4% 10%
 }
 
 .grid-columns-3 {
@@ -136,6 +180,26 @@ body {
     justify-content: center;
     justify-items: center;
     font-weight: 800;
+}
+
+.item-row {
+    border: 2px solid var(--white-text-colour);
+    border-right: none;
+    border-top: none;
+    background-color: var(--item-bg-colour);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    font-weight: 200;
+}
+
+.grid-columns-7 > .item-row,
+.grid-columns-3 > .item-row,
+.grid-rows-2 > .item-row {
+    font-size: 0.8em;
+    padding: 0.3em;
 }
 
 .grid-columns-7 > .item,
@@ -182,6 +246,7 @@ body {
 
 .chevron:hover {
     opacity: 1;
+    cursor: pointer;
 }
 
 .page-numbers {
@@ -211,6 +276,8 @@ body {
     border-radius: .5em;
     transform-origin: center;
     transition: background-color 250ms ease-in-out;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
                 
 }
 .submit-button > i {
@@ -239,6 +306,136 @@ body {
     color: var(--white-text-colour);
 }
 
+.edit-button {
+    margin: 0.4em;
+    height: 1.5em;
+    padding: 0.5em;
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--submit-button-colour);
+    background-color: var(--white-text-colour);
+    border-radius: .25em;
+    transform-origin: center;
+    transition: background-color 250ms ease-in-out;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+.edit-button > span {
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--submit-button-colour);
+    transition: color 100ms 250ms ease-in-out;
+}
+
+.edit-button:hover {
+    background-color: var(--submit-button-colour);
+}
+
+.edit-button:hover > i {
+    color: var(--white-text-colour);
+}
+
+.edit-button:hover > span {
+    color: var(--white-text-colour);
+}
+
+.delete-button {
+    margin: 0.4em;
+    height: 1.5em;
+    padding: 0.5em;
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--delete-button-colour);
+    background-color: var(--white-text-colour);
+    border-radius: .25em;
+    transform-origin: center;
+    transition: background-color 250ms ease-in-out;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+.delete-button > span {
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--delete-button-colour);
+    transition: color 100ms 250ms ease-in-out;
+}
+
+.delete-button:hover {
+    background-color: var(--delete-button-colour);
+}
+
+.delete-button:hover > i {
+    color: var(--white-text-colour);
+}
+
+.delete-button:hover > span {
+    color: var(--white-text-colour);
+}
+
+/* Entry / Edit Modal Popup */
+#entry-modal {
+    margin: 0;
+    left:50%;
+    top: 20%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(0);
+    border: none;
+    border-radius: 0.25em;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    animation: scaleIn 800ms ease-in-out forwards;
+}
+@keyframes scaleIn {
+    0% {
+
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+#entry-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.modal-body {
+    padding: 2em;
+}
+
+/* Delete Modal Popup */
+#delete-modal {
+    margin: 0;
+    left:50%;
+    top: 20%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(0);
+    border: none;
+    border-radius: 0.25em;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    animation: scaleIn 800ms ease-in-out forwards;
+}
+@keyframes scaleIn {
+    0% {
+
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+#delete-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
 /* Media Queries */
 
