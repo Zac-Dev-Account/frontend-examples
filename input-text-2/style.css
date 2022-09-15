@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-colour: #1d2b3a;
+    --valid-colour: #00dfc4;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 30px;
+    background-color: var(--bg-colour);
+}
+
+.input-box {
+    position: relative;
+    width: 250px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, .25);
+    background: var(--bg-colour);
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    transition: 500ms ease-in-out;
+
+}
+
+.input-box span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    transition: 500ms ease-in-out;
+}
+
+.input-box input:valid ~span,
+.input-box input:focus ~span {
+    color: var(--valid-colour);
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.85em;
+    padding: 0 10px;
+    background-color: var(--bg-colour);
+    border-left: 1px solid var(--valid-colour);
+    border-right: 1px solid var(--valid-colour);
+    letter-spacing: 0.2em;
+}
+
+.input-box:nth-child(2) input:valid ~span,
+.input-box:nth-child(2) input:focus ~span {
+    background-color: var(--valid-colour);
+    color: var(--bg-colour);
+    border-radius: 2px;
+}
+
+.input-box input:valid ,
+.input-box input:focus {
+    border: 1px solid var(--valid-colour);
+}

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-colour: #03080a;
+    --text-colour: #45f3ff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-colour);
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    padding: 20px;
+
+}
+
+.container h2 {
+    width: 100%;
+    color: var(--text-colour);
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container .row-100 {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(autofit, minmax(300px, 1fr));
+}
+
+.container .row-100 .col {
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+
+.container .row-100 .input-box {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: var(--text-colour);
+}
+
+.container .row-100 .input-box input,
+.container .row-100 .input-box.textarea textarea {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 1.5em;
+    padding: 0 10px;
+    z-index: 1;
+    color: #000;
+}
+
+.container .row-100 .input-box .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 1.5em;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.container .row-100 .input-box input:focus + .text,
+.container .row-100 .input-box input:valid + .text
+ {
+    top: -35px;
+    left: -10px;
+}
+
+.container .row-100 .input-box .line {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-colour);
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row-100 .input-box input:focus ~ .line,
+.container .row-100 .input-box input:valid ~ .line {
+    height: 100%;
+
+}
+
+.container .row-100 .input-box.textarea {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+}
+
+.container .row-100 .input-box.textarea textarea {
+    height: 100%;
+    resize: none;
+}
+
+.container .row-100 .input-box textarea:focus + .text,
+.container .row-100 .input-box textarea:valid + .text
+ {
+    top: -35px;
+    left: -10px;
+}
+
+.container .row-100 .input-box textarea:focus ~ .line,
+.container .row-100 .input-box textarea:valid ~ .line {
+    height: 100%;
+
+}
+
+input[type="submit"] {
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: var(--text-colour);
+    color: #000;
+    font-size: 1.5em;
+    border-radius: 2px;
+}
