@@ -2,21 +2,35 @@
 <!-- 1. Get Dynamic Data Populating (DONE)-->
 <!-- 2. Get Pagination Working (DONE)-->
 <!-- 3. Get Modal Popup working (DONE)-->
+<!-- 4. Swap over to highlightable, selectable / clickable rows (DONE) -->
 
-<!-- 4. Get Data Entry Working -->
-<!-- 5. Add Validation to Data Entry, No Overlapping Dates / Times + Required Fields -->
+<!-- 5. Get Data Entry Working -->
+<!-- DE: Add Cancel X button to Sticky Header to close Modal from header (DONE)-->
+<!-- DE: Get Delete Entry Working (DONE) -->
 
-<!-- 6. Get Save Data Working -->
-<!-- 7. Get Delete Data Working -->
-<!-- 8. Get Edit Data Working -->
+<!-- DE: Fix pagination on Delete -->
 
-<!-- 9. Get Status Row Indicators Working -->
+<!-- DE: Fix Signature Pad, not working nicely -->
+<!-- DE: Checkbox to Confirm (i am QSD and this is my signature) -->
+<!-- DE: Button to Save & Send for Approval, select QSD -->
+<!-- DE: Button to Save Complete -->
 
-<!-- 10. Get Sorting Data working -->
-<!-- 11. Create an hours Progress Bar at top -->
-<!-- 12. Get Responsiveness working-->
-<!-- 13. Add Day-Night Toggle -->
-<!-- 14. Add any minor touch ups -->
+<!-- 6. Add Validation to Data Entry, No Overlapping Dates / Times + Required Fields -->
+<!-- Start Time must be before Finish Time -->
+
+<!-- 7. Get Save Data Working -->
+
+<!-- 8. Get Delete Data Working -->
+<!-- 9. Get Edit Data Working -->
+
+<!-- 10. Get Status Row Indicators Working -->
+
+<!-- 11. Get Sorting Data working -->
+<!-- 12. Create an hours Progress Bar at top -->
+<!-- 13. Get Responsiveness working-->
+<!-- 14. Add Day-Night Toggle -->
+<!-- 15. Add any minor touch ups -->
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -130,9 +144,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="item">
-                    </div>
     
                 </div>
             </div>
@@ -172,27 +183,134 @@
 
         <!-- Entry / Edit Modal Pop-up -->
         <dialog class="entry-modal" id="entry-modal" >
-            <div class="edit-heading">
+            <div class="modal-heading">
                 <div class="heading-icon">
                     <i class="fa-solid fa-calendar-days calendar"></i>
                 </div>
                 <h1>Log Your Hours!</h1>
-            </div>
-            <hr>
-            <canvas></canvas>
-            <button class="close-button" id="close-entry-button">Close Button</button>
-        </dialog>
-
-        <dialog class="delete-modal" id="delete-modal" >
-            <div class="delete-heading">
-                <div class="heading-icon">
-                    <i class="fa-solid fa-calendar-days calendar"></i>
+                <div class="close-icon">
+                    <i class="fa-regular fa-rectangle-xmark"></i>
                 </div>
-                <h1>Delete Entry</h1>
             </div>
             <hr>
-            <canvas></canvas>
-            <button class="close-button" id="close-delete-button">Close Button</button>
+
+            <div class="modal-body">
+                <p id="entry-id"></p>
+
+                <div class="modal-row">
+                    <h1>Date</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="date">Date</label>
+                        <input type="date" name="date" id="">
+                    </div>
+                </div>
+
+                <div class="modal-row">
+                    <h1>Time</h1>
+                    <hr>
+
+                    <div class="input-box">
+                        <label for="start">Start</label>
+                        <input type="time" name="start" id="">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="finish">Finish</label>
+                        <input type="time" name="finish" id="">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="duration">Duration</label>
+                        <input type="number" name="duration" id="" readonly>
+                    </div>
+
+                </div>
+
+                <div class="modal-row">
+                    <h1>Location</h1>
+                    <hr>
+
+
+                    <div class="input-box">
+                        <label for="to">From</label>
+                        <input type="text" name="from" id="">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="to">To</label>
+                        <input type="text" name="to" id="">
+                    </div>
+
+
+                </div>
+
+                <div class="modal-row">
+                    <h1>Conditions</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="road">Road</label>
+                        <input type="text" name="road" id="">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="weather">Weather</label>
+                        <input type="text" name="weather" id="">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="traffic">Traffic</label>
+                        <input type="text" name="traffic" id="">
+                    </div>
+                </div>
+
+                <div class="modal-row">
+                    <h1>Learner's Signature</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="learnerSignature">Signature</label>
+                        <canvas height="120px" id="learnerSignature"></canvas>
+                    </div>
+                </div>
+
+                <div class="modal-row">
+                    <h1>Qualified Supervising Driver</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" name="fullName" id="">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="licenseNo">License No.</label>
+                        <input type="text" name="licenseNo" id="">
+                    </div>
+                    <div class="input-box">
+                        <label for="qsdSignature">Signature</label>
+                        <canvas height="120px" id="qsdSignature"></canvas>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="modal-button-layout">
+                    <div class="modal-secondary-buttons">
+                        <button class="delete-button" id="close-entry-button">
+                            <span>Cancel</span>
+                        </button>
+                        <button class="delete-button" id="delete-entry-button">
+                            <span>Delete</span>
+                        </button>
+                    </div>
+
+                    <button class="submit-button" id="save-entry-button">
+                        <span>Save Entry</span>
+                    </button>
+                </div>
+
+            </div>
         </dialog>
         
         <script src="./js/data.js"></script>

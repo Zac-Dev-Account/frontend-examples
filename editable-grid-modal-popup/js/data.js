@@ -40,6 +40,7 @@ const TRAFFIC_LIST = [
 // Simple data model for demo purposes
 const TABLE_DATA = [
     {
+        id: 1,
         status: STATUS_APPROVED,
         date: new Date(2022, 03, 10),
         start: "9:00 AM",
@@ -57,6 +58,7 @@ const TABLE_DATA = [
 
     },
     {
+        id: 2,
         status: STATUS_APPROVED,
         date: new Date(2022, 03, 11),
         start: "9:00 AM",
@@ -74,6 +76,7 @@ const TABLE_DATA = [
     },
 
     {
+        id: 3,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 12),
         start: "9:00 AM",
@@ -91,6 +94,7 @@ const TABLE_DATA = [
     },
 
     {
+        id: 4,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 13),
         start: "9:00 AM",
@@ -108,6 +112,7 @@ const TABLE_DATA = [
     },
 
     {
+        id: 5,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 14),
         start: "11:00 AM",
@@ -125,6 +130,7 @@ const TABLE_DATA = [
     },
 
     {
+        id: 6,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 15),
         start: "10:00 AM",
@@ -142,6 +148,7 @@ const TABLE_DATA = [
     },
 
     {
+        id: 7,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 16),
         start: "6:00 AM",
@@ -159,6 +166,7 @@ const TABLE_DATA = [
     },
 
     {
+        id: 8,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 17),
         start: "9:00 AM",
@@ -176,6 +184,7 @@ const TABLE_DATA = [
     },
 
     {
+        id: 9,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 18),
         start: "8:00 AM",
