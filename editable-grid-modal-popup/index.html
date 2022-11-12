@@ -9,6 +9,7 @@
 <!-- DE: Get Delete Entry Working (DONE) -->
 
 <!-- DE: Fix pagination on Delete -->
+<!-- DE: Add Modal Popup for Delete; Are you sure? -->
 
 <!-- DE: Fix Signature Pad, not working nicely -->
 <!-- DE: Checkbox to Confirm (i am QSD and this is my signature) -->
@@ -250,17 +251,39 @@
                     <hr>
                     <div class="input-box">
                         <label for="road">Road</label>
-                        <input type="text" name="road" id="">
+                        <div class="dropdown" id="road-dropdown">
+                            <input type="text" name="road" class="text-box" placeholder="- Select Road Type" readonly>
+                            <div class="option">
+                                <div onclick="dropdownSelect('S')"><p>Sealed</p></div>
+                                <div onclick="dropdownSelect('U')"><p>Unsealed</p></div>
+                                <div onclick="dropdownSelect('Q')"><p>Quiet</p></div>
+                                <div onclick="dropdownSelect('B')"><p>Busy</p></div>
+                                <div onclick="dropdownSelect('ML')"><p>Multilane</p></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="input-box">
                         <label for="weather">Weather</label>
-                        <input type="text" name="weather" id="">
+                        <div class="dropdown" id="weather-dropdown">
+                            <input type="text" name="weather" class="text-box" placeholder="- Select Weather" readonly>
+                            <div class="option">
+                                <div onclick="dropdownSelect('D')"><p>Dry</p></div>
+                                <div onclick="dropdownSelect('W')"><p>Wet</p></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="input-box">
                         <label for="traffic">Traffic</label>
-                        <input type="text" name="traffic" id="">
+                        <div class="dropdown" id="traffic-dropdown">
+                            <input type="text" name="traffic" class="text-box" placeholder="- Select Traffic" readonly>
+                            <div class="option">
+                                <div onclick="dropdownSelect('L')"><p>Light</p></div>
+                                <div onclick="dropdownSelect('M')"><p>Medium</p></div>
+                                <div onclick="dropdownSelect('H')"><p>Heavy</p></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -287,7 +310,7 @@
                     </div>
                     <div class="input-box">
                         <label for="qsdSignature">Signature</label>
-                        <canvas height="120px" id="qsdSignature"></canvas>
+                        <canvas id="qsdSignature"></canvas>
                     </div>
 
                 </div>
@@ -312,6 +335,33 @@
 
             </div>
         </dialog>
+
+        <!-- Cancel Modal Yes/No Pop-up -->
+        <dialog class="cancel-modal" id="cancel-modal">
+            <div class="modal-heading cancel-heading">
+                <div class="heading-icon">
+                    <i class="fa-solid fa-triangle-exclamation calendar"></i>
+                </div>
+                <h1>Are you sure?</h1>
+            </div>
+            <hr>
+
+            <div class="modal-body">
+                <div class="modal-button-layout">
+                    <div class="modal-secondary-buttons">
+                        <button class="submit-button" id="cancel-no-button">
+                            <span>No</span>
+                        </button>
+                    </div>
+    
+                    <button class="delete-button" id="cancel-yes-button">
+                        <span>Yes</span>
+                    </button>
+                </div>
+            </div>
+
+        </dialog>
+
         
         <script src="./js/data.js"></script>
         <script src="./js/table.js"></script>

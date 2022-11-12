@@ -79,10 +79,10 @@ function moveRightEnd() {
 
 function setMaxPage() {
     if(TABLE_DATA.length > 0) {
-        return Math.ceil(TABLE_DATA.length / BATCH_SIZE)
+        return Math.ceil(TABLE_DATA.length / BATCH_SIZE);
     }
     else {
-        return 1
+        return 1;
     }
 }
 
@@ -226,6 +226,9 @@ function generateRow(rowData, index) {
             let entryIdElement = entryModal.querySelector('#entry-id');
             entryIdElement.innerHTML = rowData.id;
 
+            // Set Modal Status
+            MODAL_STATUS = STATUS_ENTRY;
+
             // Show Delete Button
             deleteEntryButton.style.display = null;
 
@@ -250,6 +253,15 @@ function deleteRow(rowId) {
         }
     };
     // Re-generate columns for View
+    MAX_PAGE = setMaxPage();
+
+    // Reset Current page if necessary
+    if( MAX_PAGE < CURRENT_PAGE) {
+        CURRENT_PAGE = MAX_PAGE;
+    }
+
+    setPageNumberText();
+    setBatchNumbersText();
     generateTableRows();
 };
 
@@ -271,6 +283,15 @@ function formatDate(date) {
 // TABLE END
 
 // MODAL START
+// Modal Statuses
+const STATUS_CANCEL = "modal_cancel";
+const STATUS_DELETE = "modal_delete";
+const STATUS_ENTRY = "modal_entry";
+const STATUS_CLOSED = "closed";
+// Current Status
+var MODAL_STATUS = STATUS_ENTRY;
+
+// Entry Modal
 const entryModal = document.querySelector('#entry-modal');
 const addNewEntryButton = document.querySelector('.submit-button');
 const modalBody = entryModal.querySelector('.modal-body');
@@ -282,29 +303,72 @@ const deleteEntryButton = entryModal.querySelector('#delete-entry-button');
 closeIcon.addEventListener('click', () => {
     modalBody.scrollTop = 0;
     entryModal.close();
+    MODAL_STATUS = STATUS_CLOSED;
 });
 
 addNewEntryButton.addEventListener('click', () => {
     // Hide Delete Button
     deleteEntryButton.style.display = "none";
+
+    // Set Modal Status
+    MODAL_STATUS = STATUS_ENTRY;
+
     entryModal.showModal();
 });
 
 closeEntryButton.addEventListener('click', () => {
-    modalBody.scrollTop = 0;
-    entryModal.close();
+    // Set Modal Status
+    MODAL_STATUS = STATUS_CANCEL;
+
+    cancelModal.showModal();
 });
 
 saveEntryButton.addEventListener('click', () => {
     entryModal.close();
+    MODAL_STATUS = STATUS_CLOSED;
 });
 
 deleteEntryButton.addEventListener('click', () => {
-    let rowId = entryModal.querySelector('#entry-id').innerHTML;
-    deleteRow(rowId);
+    // Set Modal Status
+    MODAL_STATUS = STATUS_DELETE;
 
-    entryModal.close();
+    cancelModal.showModal();
 });
+
+// Modal - Dropdowns
+let weatherDropdown = document.querySelector('#weather-dropdown');
+let trafficDropdown = document.querySelector('#traffic-dropdown');
+let roadDropdown = document.querySelector('#road-dropdown');
+
+weatherDropdown.addEventListener('click', () => {
+    weatherDropdown.classList.toggle('active');
+})
+
+weatherDropdown.addEventListener('focusout', () => {
+    weatherDropdown.classList.remove('active');
+})
+
+trafficDropdown.addEventListener('click', () => {
+    trafficDropdown.classList.toggle('active');
+})
+
+trafficDropdown.addEventListener('focusout', () => {
+    trafficDropdown.classList.remove('active');
+})
+
+roadDropdown.addEventListener('click', () => {
+    roadDropdown.classList.toggle('active');
+})
+
+roadDropdown.addEventListener('focusout', () => {
+    roadDropdown.classList.remove('active');
+})
+
+function dropdownSelect(selection) {
+    document.querySelector('.text-box').value = selection;
+    
+};
+
 
 // Modal - Signature Pad
 const learnerCanvas = modalBody.querySelector("#learnerSignature");
@@ -327,6 +391,55 @@ qsdSignaturePad.addEventListener("beginStroke", () => {
 
 
 // Modal - Data Entry Validations
+
+// Modal - Functions
+function clearFormValues() {
+    // Select All Input's from body
+
+    // Loop through inputs
+
+    // Set value to null
+
+
+    // Clear Canvas
+    learnerSignaturePad.clear();
+    qsdSignaturePad.clear();
+}
+
+// Cancel Modal
+const cancelModal = document.querySelector('#cancel-modal');
+const cancelYesButton = cancelModal.querySelector('#cancel-yes-button');
+const cancelNoButton = cancelModal.querySelector('#cancel-no-button');
+
+cancelYesButton.addEventListener('click', () => {
+    modalBody.scrollTop = 0;
+    clearFormValues();
+
+    switch(MODAL_STATUS) {
+
+        case STATUS_DELETE:
+            let rowId = entryModal.querySelector('#entry-id').innerHTML;
+            deleteRow(rowId);
+            break;
+
+        default:
+            break;
+    }
+
+
+    cancelModal.close();
+    entryModal.close();
+
+    MODAL_STATUS = STATUS_CLOSED;
+});
+
+cancelNoButton.addEventListener('click', () => {
+    cancelModal.close();
+    MODAL_STATUS = STATUS_ENTRY;
+});
+
+
+
 
 
 // MODAL END
