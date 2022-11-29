@@ -1,36 +1,23 @@
 <!-- ToDo: -->
-<!-- 1. Get Dynamic Data Populating (DONE)-->
-<!-- 2. Get Pagination Working (DONE)-->
-<!-- 3. Get Modal Popup working (DONE)-->
-<!-- 4. Swap over to highlightable, selectable / clickable rows (DONE) -->
+<!-- DE: Populate signatures properly -->
+<!-- DE: Get Edit Data Working -->
+<!-- DE: Get Save Data & Create New Row working properly -->
+<!-- DE: Test All CRUD operations -->
 
-<!-- 5. Get Data Entry Working -->
-<!-- DE: Add Cancel X button to Sticky Header to close Modal from header (DONE)-->
-<!-- DE: Get Delete Entry Working (DONE) -->
+<!-- 13. Create a separate progress bar for DT & NT hours-->
+<!-- 14. Have a complete animation play and a unique animation when each bar is full -->
+<!-- 15. Add Day-Night Toggle -->
+<!-- 16. Add any minor touch ups -->
+<!-- 17. Get Responsiveness working-->
 
-<!-- DE: Fix pagination on Delete -->
-<!-- DE: Add Modal Popup for Delete; Are you sure? -->
 
-<!-- DE: Fix Signature Pad, not working nicely -->
-<!-- DE: Checkbox to Confirm (i am QSD and this is my signature) -->
-<!-- DE: Button to Save & Send for Approval, select QSD -->
-<!-- DE: Button to Save Complete -->
-
+<!-- Later To Do (Not in this Project) -->
+<!-- 11. Get Sorting Data working -->
+<!-- 10. Get Status Row Indicators Working -->
 <!-- 6. Add Validation to Data Entry, No Overlapping Dates / Times + Required Fields -->
 <!-- Start Time must be before Finish Time -->
-
-<!-- 7. Get Save Data Working -->
-
-<!-- 8. Get Delete Data Working -->
-<!-- 9. Get Edit Data Working -->
-
-<!-- 10. Get Status Row Indicators Working -->
-
-<!-- 11. Get Sorting Data working -->
-<!-- 12. Create an hours Progress Bar at top -->
-<!-- 13. Get Responsiveness working-->
-<!-- 14. Add Day-Night Toggle -->
-<!-- 15. Add any minor touch ups -->
+<!-- DE: Button to Save & Send for Approval, select QSD -->
+<!-- DE: Button to Save Complete -->
 
 
 <!DOCTYPE html>
@@ -55,132 +42,145 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Card -->
-
-        <!-- Table -->
         <div class="container">
-            <!-- Main Heading -->
-            <div class="heading">
-                <h1>Record of Daytime Driving Hours</h1>
-                <div class="heading-icon">
-                    <i class="fa-solid fa-sun sun"></i>
-                    <h1>Daytime</h1>
+            <!-- Progress Bars -->
+            <div class="progress-bar-container">
+                <h1>Daytime Hours (%)</h1>
+                <div class="progress-bar" id="daytime-progress-bar">
+                    <h1 class="progress-bar-text">0%</h1>
+                </div>
+                <h1>Nighttime hours (%)</h1>
+                <div class="progress-bar" id="nighttime-progress-bar">
+                    <h1 class="progress-bar-text">0%</h1>
                 </div>
             </div>
 
-            <!-- Sub Heading -->
-            <div class="table-heading">
-                <div class="grid-columns-7">
-
-                    <div class="item">
-                        <p>Date</p>
+            <!-- Table -->
+            <div class="table-container">
+                <!-- Main Heading -->
+                <div class="heading">
+                    <h1>Record of Daytime Driving Hours</h1>
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-sun sun"></i>
+                        <h1>Daytime</h1>
                     </div>
-    
-                    <div class="grid-rows-2">
-                        <div class="item">
-                            <p>Time</p>
-                        </div>
-                        <div class="grid-columns-3">
-                            <div class="item">
-                                <p>Start</p>
-                            </div>
-                            <div class="item">
-                                <p>Finish</p>
-                            </div>
-                            <div class="item">
-                                <p>Duration</p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="grid-rows-2">
-                        <div class="item">
-                            <p>Location ( Suburb )</p>
-                        </div>
-                        <div class="grid-columns-2">
-                            <div class="item">
-                                <p>From</p>
-                            </div>
-                            <div class="item">
-                                <p>To</p>
-                            </div>
-                        </div>
-                    </div>
-    
-    
-                    <div class="grid-rows-2">
-                        <div class="item">
-                            <p>Conditions</p>
-                        </div>
-                        <div class="grid-columns-3">
-                            <div class="item">
-                                <p>Road</p>
-                            </div>
-                            <div class="item">
-                                <p>Weather</p>
-                            </div>
-                            <div class="item">
-                                <p>Traffic</p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="item">
-                        <p>Learner's Signature</p>
-                    </div>
-    
-                    <div class="grid-rows-2">
-                        <div class="item">
-                            <p>Qualified Supervising Driver</p>
-                        </div>
-                        <div class="grid-columns-3">
-                            <div class="item">
-                                <p>Full Name</p>
-                            </div>
-                            <div class="item">
-                                <p>License No.</p>
-                            </div>
-                            <div class="item">
-                                <p>Signature</p>
-                            </div>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-
-            <div class="table-body">
-            </div>
-
-            <div class="table-footer">
-                <!-- Pagination -->
-                <div class="pagination">
-                    <i class="fa-solid fa-angles-left chevron" id="chevron-left-end"></i>
-                    <div class="middle-pagination">
-                        <i class="fa-solid fa-chevron-left chevron" id="chevron-left"></i>
-                        <p class="page-number" id="batch-number-text"></p>
-                        <i class="fa-solid fa-chevron-right chevron" id="chevron-right"></i>
-                    </div>
-
-                    <i class="fa-solid fa-angles-right chevron" id="chevron-right-end"></i>
                 </div>
 
-                <!-- Page Numbers -->
-                <div class="page-numbers">
-                    <span id="page-number-text"></span>
+                <!-- Sub Heading -->
+                <div class="table-heading">
+                    <div class="grid-columns-7">
+
+                        <div class="item">
+                            <p>Date</p>
+                        </div>
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Time</p>
+                            </div>
+                            <div class="grid-columns-3">
+                                <div class="item">
+                                    <p>Start</p>
+                                </div>
+                                <div class="item">
+                                    <p>Finish</p>
+                                </div>
+                                <div class="item">
+                                    <p>Duration</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Location ( Suburb )</p>
+                            </div>
+                            <div class="grid-columns-2">
+                                <div class="item">
+                                    <p>From</p>
+                                </div>
+                                <div class="item">
+                                    <p>To</p>
+                                </div>
+                            </div>
+                        </div>
+        
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Conditions</p>
+                            </div>
+                            <div class="grid-columns-3">
+                                <div class="item">
+                                    <p>Road</p>
+                                </div>
+                                <div class="item">
+                                    <p>Weather</p>
+                                </div>
+                                <div class="item">
+                                    <p>Traffic</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="item">
+                            <p>Learner's Signature</p>
+                        </div>
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Qualified Supervising Driver</p>
+                            </div>
+                            <div class="grid-columns-3">
+                                <div class="item">
+                                    <p>Full Name</p>
+                                </div>
+                                <div class="item">
+                                    <p>License No.</p>
+                                </div>
+                                <div class="item">
+                                    <p>Signature</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
                 </div>
+
+                <div class="table-body">
+                </div>
+
+                <div class="table-footer">
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <i class="fa-solid fa-angles-left chevron" id="chevron-left-end"></i>
+                        <div class="middle-pagination">
+                            <i class="fa-solid fa-chevron-left chevron" id="chevron-left"></i>
+                            <p class="page-number" id="batch-number-text"></p>
+                            <i class="fa-solid fa-chevron-right chevron" id="chevron-right"></i>
+                        </div>
+
+                        <i class="fa-solid fa-angles-right chevron" id="chevron-right-end"></i>
+                    </div>
+
+                    <!-- Page Numbers -->
+                    <div class="page-numbers">
+                        <span id="page-number-text"></span>
+                    </div>
+                </div>
+
+
+                <!-- Add New Entry -->
+                <div class="button-layout">
+                    <button class="submit-button">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Add New Entry</span>
+                    </button>
+                </div>
+
             </div>
-
-
-            <!-- Add New Entry -->
-            <div class="button-layout">
-                <button class="submit-button">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Add New Entry</span>
-                </button>
-            </div>
-
         </div>
+
 
         <!-- Entry / Edit Modal Pop-up -->
         <dialog class="entry-modal" id="entry-modal" >
@@ -203,7 +203,7 @@
                     <hr>
                     <div class="input-box">
                         <label for="date">Date</label>
-                        <input type="date" name="date" id="">
+                        <input class="modal-input" type="date" name="date" id="modal-input-date">
                     </div>
                 </div>
 
@@ -213,17 +213,17 @@
 
                     <div class="input-box">
                         <label for="start">Start</label>
-                        <input type="time" name="start" id="">
+                        <input class="modal-input" type="time" name="start" id="modal-input-start">
                     </div>
 
                     <div class="input-box">
                         <label for="finish">Finish</label>
-                        <input type="time" name="finish" id="">
+                        <input class="modal-input" type="time" name="finish" id="modal-input-finish">
                     </div>
 
                     <div class="input-box">
-                        <label for="duration">Duration</label>
-                        <input type="number" name="duration" id="" readonly>
+                        <label for="duration">Duration (minutes)</label>
+                        <input class="modal-input" type="text" name="duration" id="modal-input-duration" readonly>
                     </div>
 
                 </div>
@@ -232,15 +232,14 @@
                     <h1>Location</h1>
                     <hr>
 
-
                     <div class="input-box">
                         <label for="to">From</label>
-                        <input type="text" name="from" id="">
+                        <input class="modal-input" type="text" name="from" id="modal-input-from">
                     </div>
 
                     <div class="input-box">
                         <label for="to">To</label>
-                        <input type="text" name="to" id="">
+                        <input class="modal-input" type="text" name="to" id="modal-input-to">
                     </div>
 
 
@@ -252,13 +251,13 @@
                     <div class="input-box">
                         <label for="road">Road</label>
                         <div class="dropdown" id="road-dropdown">
-                            <input type="text" name="road" class="text-box" placeholder="- Select Road Type" readonly>
+                            <input type="text" name="road" class="text-box modal-input" placeholder="- Select Road Type" id="modal-input-road" readonly>
                             <div class="option">
-                                <div onclick="dropdownSelect('S')"><p>Sealed</p></div>
-                                <div onclick="dropdownSelect('U')"><p>Unsealed</p></div>
-                                <div onclick="dropdownSelect('Q')"><p>Quiet</p></div>
-                                <div onclick="dropdownSelect('B')"><p>Busy</p></div>
-                                <div onclick="dropdownSelect('ML')"><p>Multilane</p></div>
+                                <div onclick="dropdownSelect('Sealed')"><p>Sealed</p></div>
+                                <div onclick="dropdownSelect('Unsealed')"><p>Unsealed</p></div>
+                                <div onclick="dropdownSelect('Quiet')"><p>Quiet</p></div>
+                                <div onclick="dropdownSelect('Busy')"><p>Busy</p></div>
+                                <div onclick="dropdownSelect('Multilane')"><p>Multilane</p></div>
                             </div>
                         </div>
                     </div>
@@ -266,10 +265,10 @@
                     <div class="input-box">
                         <label for="weather">Weather</label>
                         <div class="dropdown" id="weather-dropdown">
-                            <input type="text" name="weather" class="text-box" placeholder="- Select Weather" readonly>
+                            <input type="text" name="weather" class="text-box modal-input" placeholder="- Select Weather" id="modal-input-weather" readonly>
                             <div class="option">
-                                <div onclick="dropdownSelect('D')"><p>Dry</p></div>
-                                <div onclick="dropdownSelect('W')"><p>Wet</p></div>
+                                <div onclick="dropdownSelect('Dry')"><p>Dry</p></div>
+                                <div onclick="dropdownSelect('Wet')"><p>Wet</p></div>
                             </div>
                         </div>
                     </div>
@@ -277,11 +276,11 @@
                     <div class="input-box">
                         <label for="traffic">Traffic</label>
                         <div class="dropdown" id="traffic-dropdown">
-                            <input type="text" name="traffic" class="text-box" placeholder="- Select Traffic" readonly>
+                            <input type="text" name="traffic" class="text-box modal-input" placeholder="- Select Traffic" id="modal-input-traffic" readonly>
                             <div class="option">
-                                <div onclick="dropdownSelect('L')"><p>Light</p></div>
-                                <div onclick="dropdownSelect('M')"><p>Medium</p></div>
-                                <div onclick="dropdownSelect('H')"><p>Heavy</p></div>
+                                <div onclick="dropdownSelect('Light')"><p>Light</p></div>
+                                <div onclick="dropdownSelect('Medium')"><p>Medium</p></div>
+                                <div onclick="dropdownSelect('Heavy')"><p>Heavy</p></div>
                             </div>
                         </div>
                     </div>
@@ -301,12 +300,12 @@
                     <hr>
                     <div class="input-box">
                         <label for="fullName">Full Name</label>
-                        <input type="text" name="fullName" id="">
+                        <input class="modal-input" type="text" name="fullName" id="modal-input-full-name">
                     </div>
 
                     <div class="input-box">
                         <label for="licenseNo">License No.</label>
-                        <input type="text" name="licenseNo" id="">
+                        <input class="modal-input" type="text" name="licenseNo" id="modal-input-license-no">
                     </div>
                     <div class="input-box">
                         <label for="qsdSignature">Signature</label>
@@ -314,9 +313,6 @@
                     </div>
 
                 </div>
-
-
-
 
                 <div class="modal-button-layout">
                     <div class="modal-secondary-buttons">
@@ -362,7 +358,7 @@
 
         </dialog>
 
-        
+        <!-- Scripts -->
         <script src="./js/data.js"></script>
         <script src="./js/table.js"></script>
         <script src="" async defer></script>

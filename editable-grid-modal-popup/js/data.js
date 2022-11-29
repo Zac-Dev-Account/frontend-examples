@@ -8,11 +8,11 @@ const STATUS_LIST = [
     STATUS_REJECTED
 ]
 
-const ROAD_SEALED = 'S';
-const ROAD_UNSEALED = "U";
-const ROAD_QUIET = "Q";
-const ROAD_BUSY = "B";
-const ROAD_MULTI_LANED = "ML";
+const ROAD_SEALED = 'Sealed';
+const ROAD_UNSEALED = "Unsealed";
+const ROAD_QUIET = "Quiet";
+const ROAD_BUSY = "Busy";
+const ROAD_MULTI_LANED = "Multilaned";
 const ROAD_LIST = [
     ROAD_SEALED,
     ROAD_UNSEALED,
@@ -21,16 +21,16 @@ const ROAD_LIST = [
     ROAD_MULTI_LANED
 ]
 
-const WEATHER_DRY = "D";
-const WEATHER_WET = "W";
+const WEATHER_DRY = "Dry";
+const WEATHER_WET = "Wet";
 const WEATHER_LIST = [
     WEATHER_DRY,
     WEATHER_WET
 ]
 
-const TRAFFIC_LIGHT = "L";
-const TRAFFIC_MID = "M";
-const TRAFFIC_HIGH = "H";
+const TRAFFIC_LIGHT = "Light";
+const TRAFFIC_MID = "Medium";
+const TRAFFIC_HIGH = "High";
 const TRAFFIC_LIST = [
     TRAFFIC_LIGHT,
     TRAFFIC_MID,
@@ -43,8 +43,8 @@ const TABLE_DATA = [
         id: 1,
         status: STATUS_APPROVED,
         date: new Date(2022, 03, 10),
-        start: "9:00 AM",
-        finish: "12:00 PM",
+        start: new Date(2022, 03, 10, 10, 00),
+        finish: new Date(2022, 03, 10, 13, 00),
         duration: "3 Hours",
         from: "Flagstaff Hill",
         to: "Aberfoyle Park",
@@ -61,8 +61,8 @@ const TABLE_DATA = [
         id: 2,
         status: STATUS_APPROVED,
         date: new Date(2022, 03, 11),
-        start: "9:00 AM",
-        finish: "10:00 PM",
+        start: new Date(2022, 03, 10, 20, 00),
+        finish: new Date(2022, 03, 10, 23, 00),
         duration: "1 Hour",
         from: "Flagstaff Hill",
         to: "Hallett Cove",
@@ -79,8 +79,8 @@ const TABLE_DATA = [
         id: 3,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 12),
-        start: "9:00 AM",
-        finish: "13:00 PM",
+        start: new Date(2022, 03, 10, 12, 00),
+        finish: new Date(2022, 03, 10, 22, 00),
         duration: "4 Hours",
         from: "Flagstaff Hill",
         to: "Brighton",
@@ -97,8 +97,8 @@ const TABLE_DATA = [
         id: 4,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 13),
-        start: "9:00 AM",
-        finish: "14:00 PM",
+        start: new Date(2022, 03, 10, 14, 00),
+        finish: new Date(2022, 03, 10, 16, 00),
         duration: "5 Hours",
         from: "Aberfoyle Park",
         to: "Seaford",
@@ -115,8 +115,8 @@ const TABLE_DATA = [
         id: 5,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 14),
-        start: "11:00 AM",
-        finish: "1:00 PM",
+        start: new Date(2022, 03, 10, 12, 00),
+        finish: new Date(2022, 03, 10, 13, 00),
         duration: "2 Hours",
         from: "Seaford",
         to: "Elizabeth",
@@ -133,8 +133,8 @@ const TABLE_DATA = [
         id: 6,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 15),
-        start: "10:00 AM",
-        finish: "11:00 PM",
+        start: new Date(2022, 03, 10, 08, 00),
+        finish: new Date(2022, 03, 10, 15, 00),
         duration: "1 Hour",
         from: "Flagstaff Hill",
         to: "Blackwood",
@@ -151,8 +151,8 @@ const TABLE_DATA = [
         id: 7,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 16),
-        start: "6:00 AM",
-        finish: "7:00 AM",
+        start: new Date(2022, 03, 10, 09, 00),
+        finish: new Date(2022, 03, 10, 13, 00),
         duration: "1 Hour",
         from: "Belair",
         to: "Aberfoyle Park",
@@ -169,8 +169,8 @@ const TABLE_DATA = [
         id: 8,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 17),
-        start: "9:00 AM",
-        finish: "12:00 PM",
+        start: new Date(2022, 03, 10, 21, 00),
+        finish: new Date(2022, 03, 10, 24, 00),
         duration: "3 Hours",
         from: "Blackwood",
         to: "Golden Grove",
@@ -187,8 +187,8 @@ const TABLE_DATA = [
         id: 9,
         status: STATUS_AWAITING_APPROVAL,
         date: new Date(2022, 03, 18),
-        start: "8:00 AM",
-        finish: "12:00 PM",
+        start: new Date(2022, 03, 10, 20, 30),
+        finish: new Date(2022, 03, 10, 21, 30),
         duration: "4 Hours",
         from: "Smithfield Plains",
         to: "Norwood",

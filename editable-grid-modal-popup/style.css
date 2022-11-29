@@ -10,9 +10,15 @@
 }
 
 :root {
+    /* Both */
+
+    /* Day Time */
     --bg-colour: #2dad4f;
     --delete-bg-colour: #f03059;
     --edit-bg-colour: #0c8ac4;
+
+    --daytime-progress-bar-colour: rgba(45, 173, 79, 0.5); 
+    --daytime-progress-bar-colour-fill: rgba(45, 173, 79, 1); 
 
     --sun-colour: #f4fa43;
     --white-text-colour: #ffffff;
@@ -27,6 +33,13 @@
 
     --dropdown-arrow-colour: #fafafa;
     --dropdown-highlight-colour: #0c8ac4;
+
+    
+    /* Night Time */
+    --nighttime-bg-colour: #622a82;
+    --nighttime-progress-bar-colour: rgba(98, 42, 130, 0.5);
+    --nighttime-progress-bar-colour-fill: rgba(98, 42, 130, 1);
+    --moon-colour: #f2f5f7;
 }
 
 body {
@@ -38,12 +51,13 @@ body {
 
 .container {
     width: 80vw;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     transform-origin: top left;
     transform: translateY(-600px);
     animation: popIn 1000ms 100ms ease-in-out forwards;
+    overflow: hidden;
 }
 @keyframes popIn {
     0% {
@@ -56,17 +70,99 @@ body {
         transform: translateY(0px);
     }
 }
-@keyframes rotate {
-    0%{
+
+/* Progress Bar */
+.progress-bar-container {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.progress-bar {
+    position: relative;
+    margin-top: 0.5em;
+    width: 20vw;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#daytime-progress-bar {
+    margin-bottom: 1em;
+}
+
+#nighttime-progress-bar {
+
+}
+
+/* Underlay */
+#daytime-progress-bar::before {
+    content: "";
+    position: absolute;
+    width: 20vw;
+    height: 3em;
+    border-end-end-radius: 50px;
+    border-start-end-radius: 50px;
+    background-color: var(--daytime-progress-bar-colour);
+    animation: generate-progress 1500ms 1100ms ease-in-out forwards;
+}
+
+#nighttime-progress-bar::before {
+    content: "";
+    position: absolute;
+    width: 20vw;
+    height: 3em;
+    border-end-end-radius: 50px;
+    border-start-end-radius: 50px;
+    background-color: var(--nighttime-progress-bar-colour);
+}
+
+/* Fill-in */
+#daytime-progress-bar::after {
+    content: "";
+    position: absolute;
+    width: 20vw;
+    height: 3em;
+    border-end-end-radius: 50px;
+    border-start-end-radius: 50px;
+    transform: translateX(-30vw);
+    background-color: var(--daytime-progress-bar-colour-fill);
+    animation: generate-progress 1500ms 1100ms ease-in-out forwards;
+}
+
+#nighttime-progress-bar::after {
+    content: "";
+    position: absolute;
+    width: 20vw;
+    height: 3em;
+    border-end-end-radius: 50px;
+    border-start-end-radius: 50px;
+    transform: translateX(-30vw);
+    background-color: var(--nighttime-progress-bar-colour-fill);
+    animation: generate-progress 1500ms 1100ms ease-in-out forwards;
+}
+@keyframes generate-progress {
+    0% {
 
     }
-    50% {
-        transform: rotateZ(2deg);
-    }
-    100%{
-        transform: rotateZ(0deg);
-    }
 
+    100% {
+        transform: translateX(0vw);
+    }
+}
+
+/* Progress Bar Number */
+.progress-bar > h1 {
+    color: var(--white-text-colour);
+    z-index: 2;
+}
+
+/* Driving Hours Grid */
+.table-container {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
 /* Heading */
@@ -163,6 +259,7 @@ body {
 }
 
 .item-row {
+    font-size: 1;
     border: 1.5px solid var(--white-text-colour);
     border-right: none;
     border-top: none;
@@ -190,11 +287,8 @@ body {
     color 400ms ease-in-out;
 }
 
-.slectable-row:hover .item,
-.selectable-row:hover .item-row {
-}
-
 .grid-columns-7 > .item-row,
+.grid-columns-2 > .item-row,
 .grid-columns-3 > .item-row,
 .grid-rows-2 > .item-row {
     font-size: 0.8em;
@@ -203,7 +297,7 @@ body {
 
 .grid-columns-7 > .item,
 .grid-rows-2 > .item {
-    font-size: 1.5em;
+    font-size: 1.25em;
     padding: 0.2em;
 }
 
