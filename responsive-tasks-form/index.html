@@ -3,6 +3,35 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+<!-- ToDo -->
+<!-- Side Selection Menu -->
+<!-- Once selected, Form  -->
+<!-- Search filter options for selection menu -->
+<!-- Selection Menu has Pagination applied -->
+<!-- Menu colour, default blank, Green Tick if Complete -->
+<!-- Click menu to Open Form Next to it -->
+
+<!-- Read only mode initially -->
+<!-- Edit Button -->
+<!-- Cancel Button -->
+<!-- Save Button -->
+
+<!-- Status -->
+<!-- In Progress -->
+<!-- Complete -->
+
+<!-- Ways to complete -->
+<!-- Manually hand over device -->
+<!-- Send for Digital Approval via Account (if instructor has an account) -->
+<!-- If instructor has an account allow them to copy-paste/stamp their digital signature -->
+<!-- Instructors can search for their students and fill their log book / CBTA tasks in via their own account -->
+
+<!-- Mobile Version -->
+<!-- Use Accordion Structure, click menu to open up as accordion -->
+<!-- https://www.youtube.com/watch?v=FnpPvEUl010&ab_channel=OnlineTutorials -->
+<!-- https://www.youtube.com/watch?v=MXrtXg1kpVs&ab_channel=JulioCodes -->
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,12 +40,41 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/174d9e1b24.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
+        <div class="container">
+            <div class="menu-container">
+                
+            </div>
+        </div>
+
+        <!-- Modal to fill in Task -->
+        <dialog class="entry-modal" id="entry-modal">
+            <div class="modal-heading">
+
+                <div class="modal-heading-icon">
+                    <i class="fa-solid fa-check-to-slot task-icon"></i>
+                </div>
+                
+                <!-- Dynamically populate heading -->
+                <h1 id="modal-heading"></h1>
+                <div class="close-icon">
+                    <i class="fa-regular fa-rectangle-xmark"></i>
+                </div>
+            </div>
+            <hr>
+            <div class="modal-body">
+                
+            </div>
+        </dialog>
+
+        <script src="./js/data.js"></script>
+        <script src="./js/form.js"></script>
         <script src="" async defer></script>
     </body>
 </html>

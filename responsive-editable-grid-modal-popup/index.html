@@ -1,0 +1,400 @@
+<!-- ToDo: -->
+
+<!-- Add Day-Night Backgrounds + Animation -->
+<!-- Filter Day-Night Table data -->
+<!--  Add any minor touch ups -->
+<!-- Add small message / Div + Button at bottom if user has finished their driving hours -->
+<!-- Link to generate .PDF document -->
+<!-- 100% in both bars -->
+
+
+<!-- Later To Do (Not in this Project) -->
+<!-- DE: Populate signatures properly (Load, Edit & Save) -->
+<!-- 11. Get Sorting Data working -->
+<!-- 10. Get Status Row Indicators Working -->
+<!-- 6. Add Validation to Data Entry, No Overlapping Dates / Times + Required Fields -->
+<!-- Start Time must be before Finish Time -->
+<!-- DE: Button to Save & Send for Approval, select QSD -->
+<!-- DE: Button to Save Complete -->
+<!-- Have a complete animation play and a unique animation when each bar is full -->
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/174d9e1b24.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <!-- Absolute Background -->
+        <div class="background-image">
+        </div>
+
+        <div class="container">
+            <!-- Progress Bars -->
+            <div class="progress-bar-container">
+                <h1>Daytime Hours (%)</h1>
+                <div class="progress-bar" id="daytime-progress-bar">
+                    <h1 class="progress-bar-text">0%</h1>
+                    <div class="progress-bar-fill"></div>
+                </div>
+                <h1>Nighttime hours (%)</h1>
+                <div class="progress-bar" id="nighttime-progress-bar">
+                    <h1 class="progress-bar-text">0%</h1>
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <!-- Day / Night Toggle -->
+            <div class="toggle-container">
+                <div class="toggle-body">
+                    <input type="checkbox" class="toggle-click" name="toggle-click" id="toggle-click">
+                    <label for="toggle-click">
+                        <div class="toggle-circle"></div>
+                    </label>
+                </div>
+            </div>
+
+
+            <!-- Table -->
+            <div class="table-container">
+                <!-- Main Heading -->
+                <div class="heading">
+                    <h1>Record of Daytime Driving Hours</h1>
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-sun sun"></i>
+                        <h1>Daytime</h1>
+                    </div>
+                </div>
+
+                <!-- Sub Heading -->
+                <div class="table-heading">
+                    <div class="grid-columns-7">
+
+                        <div class="item">
+                            <p>Date</p>
+                        </div>
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Time</p>
+                            </div>
+                            <div class="grid-columns-3">
+                                <div class="item">
+                                    <p>Start</p>
+                                </div>
+                                <div class="item">
+                                    <p>Finish</p>
+                                </div>
+                                <div class="item">
+                                    <p>Duration</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Location ( Suburb )</p>
+                            </div>
+                            <div class="grid-columns-2">
+                                <div class="item">
+                                    <p>From</p>
+                                </div>
+                                <div class="item">
+                                    <p>To</p>
+                                </div>
+                            </div>
+                        </div>
+        
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Conditions</p>
+                            </div>
+                            <div class="grid-columns-3">
+                                <div class="item">
+                                    <p>Road</p>
+                                </div>
+                                <div class="item">
+                                    <p>Weather</p>
+                                </div>
+                                <div class="item">
+                                    <p>Traffic</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="item">
+                            <p>Learner's Signature</p>
+                        </div>
+        
+                        <div class="grid-rows-2">
+                            <div class="item">
+                                <p>Qualified Supervising Driver</p>
+                            </div>
+                            <div class="grid-columns-3">
+                                <div class="item">
+                                    <p>Full Name</p>
+                                </div>
+                                <div class="item">
+                                    <p>License No.</p>
+                                </div>
+                                <div class="item">
+                                    <p>Signature</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
+                <div class="table-body">
+                </div>
+
+                <div class="table-footer">
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <i class="fa-solid fa-angles-left chevron" id="chevron-left-end"></i>
+                        <div class="middle-pagination">
+                            <i class="fa-solid fa-chevron-left chevron" id="chevron-left"></i>
+                            <p class="page-number" id="batch-number-text"></p>
+                            <i class="fa-solid fa-chevron-right chevron" id="chevron-right"></i>
+                        </div>
+
+                        <i class="fa-solid fa-angles-right chevron" id="chevron-right-end"></i>
+                    </div>
+
+                    <!-- Page Numbers -->
+                    <div class="page-numbers">
+                        <span id="page-number-text"></span>
+                    </div>
+                </div>
+
+
+                <!-- Add New Entry -->
+                <div class="button-layout">
+                    <button class="submit-button" id="add-entry-button">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Add New Entry</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Entry / Edit Modal Pop-up -->
+        <dialog class="entry-modal" id="entry-modal" >
+            <div class="modal-heading">
+                <div class="heading-icon">
+                    <i class="fa-solid fa-calendar-days calendar"></i>
+                </div>
+                <h1>Log Your Hours!</h1>
+                <div class="close-icon">
+                    <i class="fa-regular fa-rectangle-xmark"></i>
+                </div>
+            </div>
+            <hr>
+
+            <div class="modal-body">
+                <p id="entry-id"></p>
+
+                <div class="modal-row">
+                    <h1>Date</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="date">Date</label>
+                        <input class="modal-input" type="date" name="date" id="modal-input-date">
+                    </div>
+                </div>
+
+                <div class="modal-row">
+                    <h1>Time</h1>
+                    <hr>
+
+                    <div class="input-box">
+                        <label for="start">Start</label>
+                        <input class="modal-input" type="time" name="start" id="modal-input-start">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="finish">Finish</label>
+                        <input class="modal-input" type="time" name="finish" id="modal-input-finish">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="duration">Duration (minutes)</label>
+                        <input class="modal-input" type="text" name="duration" id="modal-input-duration" readonly>
+                    </div>
+
+                </div>
+
+                <div class="modal-row">
+                    <h1>Location</h1>
+                    <hr>
+
+                    <div class="input-box">
+                        <label for="to">From</label>
+                        <input class="modal-input" type="text" name="from" id="modal-input-from">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="to">To</label>
+                        <input class="modal-input" type="text" name="to" id="modal-input-to">
+                    </div>
+
+
+                </div>
+
+                <div class="modal-row">
+                    <h1>Conditions</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="road">Road</label>
+                        <div class="dropdown" id="road-dropdown">
+                            <input type="text" name="road" class="text-box modal-input" placeholder="- Select Road Type" id="modal-input-road" readonly>
+                            <div class="option">
+                                <div onclick="dropdownSelect('Sealed', 'modal-input-road')"><p>Sealed</p></div>
+                                <div onclick="dropdownSelect('Unsealed', 'modal-input-road')"><p>Unsealed</p></div>
+                                <div onclick="dropdownSelect('Quiet', 'modal-input-road')"><p>Quiet</p></div>
+                                <div onclick="dropdownSelect('Busy', 'modal-input-road')"><p>Busy</p></div>
+                                <div onclick="dropdownSelect('Multilane', 'modal-input-road')"><p>Multilane</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="weather">Weather</label>
+                        <div class="dropdown" id="weather-dropdown">
+                            <input type="text" name="weather" class="text-box modal-input" placeholder="- Select Weather" id="modal-input-weather" readonly>
+                            <div class="option">
+                                <div onclick="dropdownSelect('Dry', 'modal-input-weather')"><p>Dry</p></div>
+                                <div onclick="dropdownSelect('Wet', 'modal-input-weather')"><p>Wet</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="traffic">Traffic</label>
+                        <div class="dropdown" id="traffic-dropdown">
+                            <input type="text" name="traffic" class="text-box modal-input" placeholder="- Select Traffic" id="modal-input-traffic" readonly>
+                            <div class="option">
+                                <div onclick="dropdownSelect('Light', 'modal-input-traffic')"><p>Light</p></div>
+                                <div onclick="dropdownSelect('Medium', 'modal-input-traffic')"><p>Medium</p></div>
+                                <div onclick="dropdownSelect('Heavy', 'modal-input-traffic')"><p>Heavy</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-row">
+                    <h1>Learner's Signature</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="learnerSignature">Signature</label>
+                        <canvas height="120px" id="modal-input-learner-signature"></canvas>
+                    </div>
+
+                    <!-- Clear -->
+                    <div class="button-layout">
+                        <button class="submit-button submit-button-small" id="clear-learner-button">
+                            <i class="fa-solid fa-eraser"></i>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="modal-row">
+                    <h1>Qualified Supervising Driver</h1>
+                    <hr>
+                    <div class="input-box">
+                        <label for="fullName">Full Name</label>
+                        <input class="modal-input" type="text" name="fullName" id="modal-input-full-name">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="licenseNo">License No.</label>
+                        <input class="modal-input" type="text" name="licenseNo" id="modal-input-license-no">
+                    </div>
+                    <div class="input-box">
+                        <label for="qsdSignature">Signature</label>
+                        <canvas id="modal-input-qsd-signature"></canvas>
+                    </div>
+
+                    <!-- Clear -->
+                    <div class="button-layout">
+                        <button class="submit-button submit-button-small" id="clear-qsd-button">
+                            <i class="fa-solid fa-eraser"></i>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal-button-layout">
+                    <div class="modal-secondary-buttons">
+                        <button class="delete-button" id="close-entry-button">
+                            <span>Cancel</span>
+                        </button>
+                        <button class="delete-button" id="delete-entry-button">
+                            <span>Delete</span>
+                        </button>
+                    </div>
+
+                    <button class="submit-button" id="save-entry-button">
+                        <span>Save Entry</span>
+                    </button>
+                </div>
+
+            </div>
+        </dialog>
+
+        <!-- Cancel Modal Yes/No Pop-up -->
+        <dialog class="cancel-modal" id="cancel-modal">
+            <div class="modal-heading cancel-heading">
+                <div class="heading-icon">
+                    <i class="fa-solid fa-triangle-exclamation calendar"></i>
+                </div>
+                <h1>Are you sure?</h1>
+            </div>
+            <hr>
+
+            <div class="modal-body">
+                <div class="modal-button-layout">
+                    <div class="modal-secondary-buttons">
+                        <button class="submit-button" id="cancel-no-button">
+                            <span>No</span>
+                        </button>
+                    </div>
+    
+                    <button class="delete-button" id="cancel-yes-button">
+                        <span>Yes</span>
+                    </button>
+                </div>
+            </div>
+
+        </dialog>
+
+        <!-- Scripts -->
+        <script src="./js/toggle-click.js"></script>
+        <script src="./js/data.js"></script>
+        <script src="./js/table.js"></script>
+        <script src="" async defer></script>
+    </body>
+</html>
