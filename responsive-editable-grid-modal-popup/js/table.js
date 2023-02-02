@@ -633,6 +633,7 @@ SAVE_ENTRY_BUTTON.addEventListener('click', () => {
             break;
     }
 
+    clearFormValues();
     ENTRY_MODAL.close();
     MODAL_STATUS = STATUS_CLOSED;
 });

@@ -1696,10 +1696,217 @@ var TASK_REF_NOTES_TABLE = [
     {
         id: 1,
         taskId: 1,
-        note: "This procedure may change due to manufacturer’s requirements",
+        note: ["This procedure may change due to manufacturer’s requirements"],
         // Decided where to display note on the screen
         type: NOTE_TYPE_CONTROL
-    }
+    },
+
+    {
+        id: 2,
+        taskId: 2,
+        note: ["This procedure may change due to manufacturer’s requirements"],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 3,
+        taskId: 3,
+        note: ["This procedure may change due to manufacturer’s requirements"],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 4,
+        taskId: 4,
+        note: ["This procedure may change due to manufacturer’s requirements"],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_RECORD
+    },
+
+    {
+        id: 5,
+        taskId: 5,
+        note: ["different types of handbrakes"],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 6,
+        taskId: 5,
+        note: [
+            "This exercise is not ‘stopping at the kerb’ / ‘moving off from the kerb’ but may be assessed when stopping and moving away from a stop line, or stopping and moving away when turning right or left, or when momentarily stopping on a slight gradient in a line of traffic.",
+            "This procedure may change due to manufacturer’s requirements e.g. hill hold"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_RECORD
+    },
+
+    {
+        id: 7,
+        taskId: 6,
+        note: ["This procedure may change due to manufacturer’s requirements"],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_RECORD
+    },
+
+    {
+        id: 8,
+        taskId: 7,
+        note: [
+            "The exercise is to reverse through approximately 90 degrees and then recover to a straight position. It is a steering control exercise and NOT a ‘Reversing Around a Corner’ manoeuvre although a quiet corner may be used.",
+
+            "Reversing cameras and other factory fitted driving aids do not replace required observations. However, they may be used as a reference."
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 9,
+        taskId: 9,
+        note: [
+            "This procedure may change due to manufacturer’s requirements",
+            "A reasonable hill for the purpose of this exercise is the one with a gradient sufficient enough to create a likelihood of the vehicle rolling backwards. The automatic hill holder must be switched off.",
+            "If, due to vehicle design, it is not possible to switch off the automatic hill-holder, the gradient must be sufficient enough to cause the automatic hill-holder to activate. A verbal explanation must also be provided covering the operation of a vehicle that is not fitted with an automatic hill holder as outlined above."
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_RECORD
+    },
+
+    {
+        id: 10,
+        taskId: 10,
+        note: [
+            "1. All five examples of U-turns must be trained, however under assessment the applicant must demonstrate two U-turns, which are not the same.",
+            "2. Dry steering is not permitted as it can damage the road, particularly in hot weather."
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_RECORD
+    },
+
+    {
+        id: 11,
+        taskId: 10,
+        note: [
+            "This procedure may change due to manufacturer’s requirements"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_RECORD
+    },
+
+    {
+        id: 12,
+        taskId: 11,
+        note: [
+            "This procedure may change due to manufacturer’s requirements"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 13,
+        taskId: 12,
+        note: [
+            "This procedure may change due to manufacturer’s requirements",
+            "When assessing this task, both left and right must be included, however under assessment the applicant may choose either left or right"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_RECORD
+    },
+
+    {
+        id: 14,
+        taskId: 13,
+        note: [
+            "Two attempts are permitted for a successful attempt at this manoeuvre to be recorded."
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 15,
+        taskId: 14,
+        note: [
+            "Two attempts are permitted for a successful attempt at this manoeuvre to be recorded."
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 16,
+        taskId: 19,
+        note: [
+            "Refer to Task 19 in CBT&A manual regarding the bracketed boxes"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 17,
+        taskId: 20,
+        note: [
+            " If intersections controlled by traffic lights are not reasonably accessible, Task 28A must be conducted instead of Task 20 and 28."
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 18,
+        taskId: 22,
+        note: [
+            "Refer (2d) regarding the use of the bracketed boxes when recording five verbally demonstrated overtaking locations"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 19,
+        taskId: 26,
+        note: [
+            "Refer Task 26 in CBT&A manual regarding the bracketed boxes"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
+
+    {
+        id: 20,
+        taskId: 29,
+        note: [
+            "This task is a replacement task for locations where there is no reasonable access to traffic lights and replaces Tasks 20 and 28"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_MODULE
+    },
+
+    {
+        id: 21,
+        taskId: 30,
+        note: [
+            "Task 28B is an optional Task. It is not compulsory for the Authorised Examiner to sign. This task has been placed in the Driving Companion primarily for the use by the Qualified Supervising Driver for guidance when recording the compulsory 15 hours of night driving."
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_MODULE
+    },
+
+    {
+        id: 22,
+        taskId: 32,
+        note: [
+            "See FAQ regarding Task requirements"
+        ],
+        // Decided where to display note on the screen
+        type: NOTE_TYPE_REQUIREMENT
+    },
 ];
 
 // One to many relationship
@@ -1707,24 +1914,145 @@ var TASK_REF_ASSESSMENT_TABLE = [
     {
         id: 1,
         taskId: 1,
-        name: ""
-    }
-];
+        name: "Cabin Drill",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
 
-// One to Many, each assessment can have many checkboxes
-var TASK_REF_ASSESSMENT_CHECKBOX_TABLE = [
     {
-        id: 1,
+        id: 2,
         taskId: 1,
-        asessmentId: 1,
+        name: "Group 1",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 3,
+        taskId: 1,
+        name: "Group 2",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 4,
+        taskId: 1,
+        name: "Group 3",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 5,
+        taskId: 2,
+        name: "(1) Starting the engine",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 6,
+        taskId: 2,
+        name: "(2) Shutting down the engine",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 7,
+        taskId: 3,
+        name: "Move off from the kerb",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 8,
+        taskId: 4,
+        name: "(1) Stop the vehicle (including slowing)",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 9,
+        taskId: 4,
+        name: "(2) Secure the vehicle to prevent rolling (a prolonged stop)",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 10,
+        taskId: 5,
+        name: "Stop and go (using the park brake)",
+        checkboxes: [
+            1,
+            2
+        ]
+    },
+
+    {
+        id: 11,
+        taskId: 6,
+        name: "(1) Change gears up and down (100% accurate and a minimum of 5 demonstrations)",
+        checkboxes: [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    },
+
+    {
+        id: 12,
+        taskId: 6,
+        name: "(2) Accurately select appropriate gears for varying speeds (100% accuracy and a minimum of 5 demonstrations",
+        checkboxes: [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
     }
 ];
 
 var TASK_REF_CHECKLIST_ITEM_TABLE = [
     {
         id: 1,
-        taskId: 30,
-        name: ""
+        taskId: 32,
+        steps: [
+            "Do not overtake turning vehicle.",
+            "Road work signs and speeds.",
+            "Lane(s) closed signs.",
+            "Stopping and or queueing over a railway crossing.",
+            "Amber traffic lights flashing.",
+            "Traffic lights not working.",
+            "Giving way to emergency vehicles.",
+            "Speed required past a stationary emergency vehicle.",
+            "Use of vehicle lights at night (Inc. high beam etc.)"
+        ]
     }
 ];
 
@@ -1775,14 +2103,6 @@ function getAssessmentsByTaskId(taskId) {
     return TASK_REF_ASSESSMENT_TABLE.filter(
         assessment => {
             return assessment.taskId === taskId;
-        }
-    )
-};
-
-function getAssessmentCheckboxesByAsId(assessmentId) {
-    return TASK_REF_ASSESSMENT_CHECKBOX_TABLE.filter(
-        checkbox => {
-            return checkbox.asessmentId === assessmentId;
         }
     )
 };
